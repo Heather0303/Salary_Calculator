@@ -62,11 +62,25 @@ select {
 }
 
 #content-col-right-first {
-  margin-top: 7px;
+  margin-top: -10px;
+  margin-left: 10px;
+  margin-right: -20px;
 }
 
 #content-col-right-second {
-  margin-top: -10px;
+  margin-bottom: -10px;
+  margin-left: 10px;
+  margin-right: -20px;
+}
+
+#check-col-first {
+  margin-top: -15px;
+  margin-left: 10px;
+}
+
+#check-col-second {
+  margin-top: -15px;
+  margin-left: 10px;
 }
 
 .field {
@@ -268,13 +282,10 @@ select {
   /* top: 50px; */
   left: 5px;
   right: 5px;
-<<<<<<< HEAD
 }
 
 .category-title
 {
   margin-left:100px;
   margin-right:100px;
-=======
->>>>>>> 8285db1539f08cff4d7182310fa6fc72639680ef
 }

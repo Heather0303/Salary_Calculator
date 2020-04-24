@@ -21,8 +21,9 @@
     // mysqli_query($db, "DROP TABLE IF EXISTS fields, formulas, headercontent, users") or die('error removing table');
     // $query = '';
     // $sqlScript = file('simulator.sql');
-    // foreach ($sqlScript as $line)	{
-        
+    // foreach ($sqlScript as $key => $line)	{ 
+    //     if($key<22)
+    //     continue;
     //     $startWith = substr(trim($line), 0 ,2);
     //     $endWith = substr(trim($line), -1 ,1);
         
