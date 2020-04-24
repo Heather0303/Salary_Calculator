@@ -46,7 +46,7 @@
         <a href="./logout.php">Logout (<?php echo $login_user;?>)</a>
     </section>
 
-    <section id="header" style="vertical-align:middle;">
+    <section id="header">
         <div class="row">
             <div class="col-md-2"></div>
             <div class="col-md-8">
@@ -56,14 +56,14 @@
                 <h1><?php echo "Set Header!"; } ?></h1>
             </div>
             <div class="col-md-2">
-                <a class="btn btn-success getheader" style="margin-top:18%;" data-id = "<?php echo $headertext[0]['id'];?>">
+                <a class="btn btn-success getheader" data-id = "<?php echo $headertext[0]['id'];?>">
                     <i class="fa fa-edit"></i> Edit Header
                 </a>
             </div>
         </div>
     </section>
 
-    <div class="portlet light">
+    <div class="row">
         <table class="table table-striped table-bordered table-hover table-checkable">
             <tbody>
                 <tr>
@@ -98,7 +98,7 @@
                 <div class="btn-group">
                     <a class="btn sbold green add_new"> Add New <i class="fa fa-plus"></i></a>
                 </div>
-                <table class="table table-striped table-bordered table-hover order-column"
+                <table class="table table-striped table-bordered table-hover table-checkable order-column"
                     id="field_list">
                     <thead>
                         <tr>
@@ -109,6 +109,7 @@
                             <th>Unit</th>
                             <th>Type</th>
                             <th>Editable</th>
+                            <th>NEW</th>
                             <th>Description</th>
                             <th>Formula</th>
                             <th>Actions</th>
@@ -133,6 +134,7 @@
                             <td><?php echo $row['unit'];?></td>
                             <td><?php echo $row['type'] ? 'Dropdown' : 'Input';?></td>
                             <td><?php echo $row['editable'] ? 'YES' : 'NO';?></td>
+                            <td><?php echo $row['new_field'] ? 'YES' : 'NO';?></td>
                             <td><?php echo $row['description'];?></td>
                             <td><?php echo $row['formula'];?></td>
                             <td>
@@ -142,7 +144,7 @@
                                 <a class="btn btn-primary medit" class="edit_dialog" attr_id = "<?php echo $row['id'];?>">
                                     <i class="fa fa-edit"></i> Edit
                                 </a>
-                                <?php if ($row['header_id'] != 100) { ?>
+                                <?php if ($row['new_field']) { ?>
                                 <a class="btn grey delete" attr_id="<?php echo $row['id'];?>" data-toggle="modal" href="#mdelete">
                                     <i class="fa fa-trash"></i> Delete
                                 </a>

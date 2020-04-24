@@ -9,13 +9,10 @@
     $formula_sql = mysqli_query($db, "SELECT * FROM formulas");
     $headertextary = array();
     $headertext = mysqli_query($db, "SELECT * FROM headercontent");
-    
     if($headertext)
         while ($header = mysqli_fetch_array($headertext, MYSQLI_ASSOC)) {
             $headertextary[$header['id']] = $header;
-            
         }
-
     function display($field) {
         echo '
             <div class="field">
@@ -45,17 +42,9 @@
             </div>';
     }
 
-    // function showNewFields($fields) {
-    //     foreach ($fields as $key => $values) {
-    //         if ($values['new_field'] == 1) {
-    //             display($values);
-    //         }
-    //     }
-    // }
-
-    function showRow($fields, $row_id) {
+    function showNewFields($fields) {
         foreach ($fields as $key => $values) {
-            if ($values['header_id'] == $row_id) {
+            if ($values['new_field'] == 1) {
                 display($values);
             }
         }
@@ -104,68 +93,49 @@
                     <h2 class="title"><?php echo $headertextary[1]['content']; ?></h2>
                 <?php } else{ ?>
                     <h2 class="title"><?php echo "Set Category!"; } ?></h2>
-                    <div class="row">
-                        <div class="content-col">
-                            <div class="content-col-left col-sm-6">
-                                <?php showRow($fields, 1)?>    
+                    <div class="content-col">
+                        <div class="content-col-left">
+                            <?php display($fields['f1']);?>
+                            <?php display($fields['f4']);?>
+                            <?php display($fields['f5']);?>
+                            <div class="field">
+                                <span class="field-name">
+                                    Demande Spoc
+                                    <div class="hover">
+                                        <i class="fa fa-info-circle tooltip"></i>
+                                        <div class="tooltipcontainer"><?php echo $fields['f18']['description'];?></div>
+                                    </div>
+                                </span>
+                                <label class="custom-checkbox">
+                                    <input id="f18" type="checkbox" checked="checked">
+                                    <span class="checkmark"></span>
+                                </label>
                             </div>
-                            <div class="col-sm-6">  </div>
+                            <div class="field">
+                                <span class="field-name">
+                                    Recouvrement
+                                    <div class="hover">
+                                        <i class="fa fa-info-circle tooltip"></i>
+                                        <div class="tooltipcontainer"><?php echo $fields['f20']['description'];?></div>
+                                    </div>
+                                </span>
+                                <label class="custom-checkbox">
+                                    <input id="f20" type="checkbox" checked="checked">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <?php display($fields['f32']);?>
+                        </div>
+                        <div class="content-col-right">
+                            <div id="content-col-right-first"><?php display($fields['f19']);?></div> 
+                            <div id="content-col-right-second"><?php display($fields['f21']);?></div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="content-col">
-                            <div class="content-col-left col-sm-6">
-                                <div class="field">
-                                    <span class="field-name">
-                                        Demande Spoc
-                                        <div class="hover">
-                                            <i class="fa fa-info-circle tooltip"></i>
-                                            <div class="tooltipcontainer"><?php echo $fields['f18']['description'];?></div>
-                                        </div>
-                                    </span>
-                                    <div id="check-col-first">
-                                        <label class="custom-checkbox">
-                                            <input id="f18" type="checkbox" checked="checked">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </div>                                    
-                                </div>
-                                <div class="field">
-                                    <span class="field-name">
-                                        Recouvrement
-                                        <div class="hover">
-                                            <i class="fa fa-info-circle tooltip"></i>
-                                            <div class="tooltipcontainer"><?php echo $fields['f20']['description'];?></div>
-                                        </div>
-                                    </span>
-                                    <div id="check-col-second">
-                                        <label class="custom-checkbox">
-                                            <input id="f20" type="checkbox" checked="checked">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </div>                                    
-                                </div>
-                            </div>
-                            <div>
-                                <div id="content-col-right-first"><?php display($fields['f19']);?></div> 
-                                <div id="content-col-right-second"><?php display($fields['f21']);?></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                    <?php if($headertextary[6]['content']) {?>
-                        <h2 class="title"><?php echo $headertextary[6]['content']; ?></h2>
-                    <?php } else{ ?>
-                        <h2 class="title"><?php echo "Set Category!"; } ?></h2>
-                        <div class="row">
-                            <div class="content-col">
-                                <div class="content-col-left col-sm-6">
-                                    <?php showRow($fields, 6)?>    
-                                </div>
-                                <div class="col-sm-6">  </div>
-                            </div>
-                        </div>
-                    </div>
+                </div>
+                
+                <div class="row">
+                    <h2 class="title">Additional Fields</h2>
+                    <?php showNewFields($fields);?>
                 </div>
             </div>
             <div class="center-col">
@@ -174,21 +144,35 @@
                         <h2 class="title"><?php echo $headertextary[2]['content']; ?></h2>
                     <?php } else{ ?>
                         <h2 class="title"><?php echo "Set Category!"; } ?></h2>
-                        <?php showRow($fields, 2)?>
+                    <?php display($fields['f6']);?>
+                    <?php display($fields['f7']);?>
+                    <?php display($fields['f2']);?>
+                    <?php display($fields['f3']);?>
                 </div>
                 <div class="row">
                     <?php if($headertextary[3]['content']) {?>
                         <h2 class="title"><?php echo $headertextary[3]['content']; ?></h2>
                     <?php } else{ ?>
                         <h2 class="title"><?php echo "Set Category!"; } ?></h2>
-                        <?php showRow($fields, 3)?>
+                    <?php display($fields['f8']);?>
+                    <?php display($fields['f9']);?>
+                    <?php display($fields['f10']);?>
+                    <?php display($fields['f11']);?>
+                    <?php display($fields['f12']);?>
+                    <?php display($fields['f13']);?>
+                    <?php display($fields['f14']);?>
+                    <?php display($fields['f15']);?>
+                    <?php display($fields['f16']);?>
+                    <?php display($fields['f17']);?>
                 </div>
                 <div class="row">
                     <?php if($headertextary[4]['content']) {?>
                         <h2 class="title"><?php echo $headertextary[4]['content']; ?></h2>
                     <?php } else{ ?>
                         <h2 class="title"><?php echo "Set Category!"; } ?></h2>
-                        <?php showRow($fields, 4)?>
+                    <?php display($fields['f23']);?>
+                    <?php display($fields['f24']);?>
+                    <?php display($fields['f25']);?>
                 </div>
             </div>
             <div class="right-col">
@@ -197,7 +181,8 @@
                         <h2 class="title"><?php echo $headertextary[5]['content']; ?></h2>
                     <?php } else{ ?>
                         <h2 class="title"><?php echo "Set Category!"; } ?></h2>
-                        <?php showRow($fields, 5)?>
+                    <?php display($fields['f30']);?>
+                    <?php display($fields['f31']);?>
                 </div>
                 <div class="result">
                     <span class="field-name">Augmentation du salaire</span>
