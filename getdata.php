@@ -20,6 +20,6 @@
 		$id = $_POST['edit_id'];
 		$query = mysqli_query($db,'SELECT * FROM fields WHERE id = ' . $id);
 		$result = mysqli_fetch_array($query, MYSQLI_ASSOC);
-		echo json_encode($result);
+		echo json_encode($result);	
 	}
 ?>

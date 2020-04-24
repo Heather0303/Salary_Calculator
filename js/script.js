@@ -84,7 +84,6 @@ $(function () {
 			action = 'Add';
 		}
 
-		category_id = $('.category_id').val();
 		name = $('.name_edit').val();
 		type = $('.fieldtype').val();
 		editable = $('.fieldeditable').val();
@@ -108,7 +107,6 @@ $(function () {
 			data: {
 				action: action,
 				data: {
-					header_id: category_id,
 					field_label: name,
 					field_id: fieldid,
 					unit: unit,
@@ -170,7 +168,6 @@ $(function () {
 				$('.value_container').html('');
 				initvaluecontainer(data.type);
 
-				$('.category_id').val(data.header_id);
 				$('.field_id').val(data.field_id);
 				$('.name_edit').val(data.field_label);
 				$('.unit_edit').val(data.unit);

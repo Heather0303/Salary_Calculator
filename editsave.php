@@ -3,7 +3,7 @@
 
     if ($_POST['action'] == 'Update') {
     	$data = $_POST['data'];
- 
+
     	$update = array();
 
     	foreach ($data as $key => $value) {

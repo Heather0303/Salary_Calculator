@@ -102,7 +102,6 @@
                     id="field_list">
                     <thead>
                         <tr>
-                            <th>Category</th>
                             <th>Field ID</th>
                             <th>Name</th>
                             <th>Value</th>
@@ -120,14 +119,6 @@
                             while ($row = mysqli_fetch_array($field_list, MYSQLI_ASSOC)) {
                         ?>
                         <tr class="odd gradeX">
-                            <td>
-                                <?php 
-                                    $id = $row['header_id'];
-                                    $query = mysqli_query($db,'SELECT content FROM headercontent WHERE id = ' . $id);
-                                    $result = mysqli_fetch_array($query, MYSQLI_ASSOC);
-                                    echo $result['content'];
-                                ?>
-                            </td>
                             <td><?php echo $row['field_id'];?></td>
                             <td><?php echo $row['field_label'];?></td>
                             <td><?php echo $row['value'];?></td>
@@ -215,20 +206,7 @@
                     <h4 class="modal-title">Edit Field</h4>
                 </div>
                 <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-2"></div>
-                        <div class="col-md-2" style="margin-top: 7px"> Category</div>
-                        <div class="col-md-5"> 
-                            <select class="form-control category_id">
-                            <?php foreach( $headertext as $key=>$value) {
-                                if($key == 0) continue;?>
-                                <option value="<?php echo $key;?>"><?php echo $value['content']; ?></option>
-                            <?php } ?>
-                            </select>  
-                        </div>
-                        <div class="col-md-3"></div>
-                    </div>
-                    <div class="row">
+                    <div class="row">change
                         <div class="col-md-2"></div>
                         <div class="col-md-2" style="margin-top: 7px"> Field Id</div>
                         <div class="col-md-5"> <input type="text" class="form-control field_id" name=""> </div>
