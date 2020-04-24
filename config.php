@@ -3,24 +3,22 @@
     // define('DB_USERNAME', 'absolud');
     // define('DB_PASSWORD', 'caro67a');
     // define('DB_DATABASE', 'block');
-    // $db = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
-    // if (mysqli_connect_errno())
-    // {
-    //     echo "Failed to connect to MySQL: " . mysqli_connect_error();
-    // }
-    // mysqli_set_charset($db, "utf8");
-
+    // ----------------------- //
     define('DB_SERVER', 'localhost');
     define('DB_USERNAME', 'root');
     define('DB_PASSWORD', '');
     define('DB_DATABASE', 'simulator');
+
     $db = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
+
     if (mysqli_connect_errno())
     {
         echo "Failed to connect to MySQL: " . mysqli_connect_error();
     }
+
     mysqli_set_charset($db, "utf8");
 
+    // mysqli_query($db, "DROP TABLE IF EXISTS fields, formulas, headercontent, users") or die('error removing table');
     // $query = '';
     // $sqlScript = file('simulator.sql');
     // foreach ($sqlScript as $line)	{

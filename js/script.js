@@ -45,6 +45,37 @@ $(function () {
 		$('.value_edit').val('');
 	})
 
+	$('.getheader').click(function () {
+		var id = $(this).attr('data-id');
+		$('.saveheader').attr('data-id', id);
+		$.ajax({
+			url: 'getheader.php',
+			type: 'POST',
+			data: { edit_id: id },
+			success: function (res) {
+				res = JSON.parse(res);
+				$('.headertext').val(res.content);
+				$('#header1').modal('show');
+			}
+		});
+	});
+
+	$('.saveheader').click(function () {
+		text = $('.headertext').val();
+		id = $('.saveheader').attr('data-id');
+		$.ajax({
+			url: 'editsaveheader.php',
+			type: 'POST',
+			data: {
+					text: text,
+					id: id
+				},
+			success: function (res) {
+				window.location.reload();
+			}
+		});
+	});
+
 	$('.change').click(function () {
 		var fieldid = $(this).attr('attr_id');
 		var action = 'Update';
@@ -53,6 +84,7 @@ $(function () {
 			action = 'Add';
 		}
 
+		category_id = $('.category_id').val();
 		name = $('.name_edit').val();
 		type = $('.fieldtype').val();
 		editable = $('.fieldeditable').val();
@@ -76,6 +108,7 @@ $(function () {
 			data: {
 				action: action,
 				data: {
+					header_id: category_id,
 					field_label: name,
 					field_id: fieldid,
 					unit: unit,
@@ -113,6 +146,7 @@ $(function () {
 		});
 	});
 
+
 	$(".save_add").click(function () {
 		$.ajax({
 			url: 'data.php',
@@ -136,6 +170,7 @@ $(function () {
 				$('.value_container').html('');
 				initvaluecontainer(data.type);
 
+				$('.category_id').val(data.header_id);
 				$('.field_id').val(data.field_id);
 				$('.name_edit').val(data.field_label);
 				$('.unit_edit').val(data.unit);

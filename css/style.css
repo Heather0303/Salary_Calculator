@@ -12,6 +12,10 @@ select {
   text-align-last: center;
 }
 
+#headerbtn {
+    margin-top: 12%;
+}
+
 #header h1 {
   padding: 10px;
   border: 1px solid #ccc;
@@ -51,15 +55,26 @@ select {
 .content-col-left {
   flex-basis: 55%;
 }
+
 .content-col-right {
-  padding-top: 140px;
+  margin-top: 155px;
   flex-basis: 45%;
 }
+
+#content-col-right-first {
+  margin-top: 7px;
+}
+
+#content-col-right-second {
+  margin-top: -10px;
+}
+
 .field {
   display: flex;
   align-items: center;
   margin: 10px 0;
 }
+
 .field .field-name {
   flex-basis: 60%;
   font-size: 14px;
@@ -78,6 +93,7 @@ select {
 .field-name {
     display: inherit;
 }
+
 .field select.field-value, .field input.field-value {
   padding: 5px 5px;
   width: 70px;
@@ -154,7 +170,7 @@ select {
 /* Create a custom checkbox */
 .checkmark {
   position: absolute;
-  top: 0;
+  top: 7px;
   left: 0;
   height: 25px;
   width: 25px;
@@ -248,8 +264,17 @@ select {
 .hover
 {
   margin-right: 34px !important;
-    position: relative;
-    /* top: 50px; */
-    left: 5px;
-    right: 5px;
+  position: relative;
+  /* top: 50px; */
+  left: 5px;
+  right: 5px;
+<<<<<<< HEAD
+}
+
+.category-title
+{
+  margin-left:100px;
+  margin-right:100px;
+=======
+>>>>>>> 8285db1539f08cff4d7182310fa6fc72639680ef
 }

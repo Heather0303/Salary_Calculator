@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Окт 08 2019 г., 12:49
+-- Время создания: Окт 09 2019 г., 22:08
 -- Версия сервера: 10.4.6-MariaDB
 -- Версия PHP: 7.3.9
 
@@ -56,21 +56,21 @@ INSERT INTO `fields` (`id`, `field_id`, `field_label`, `value`, `unit`, `type`, 
 (10, 'f16', 'Admin CDI', '200,300', '€', 1, '', 0, 0),
 (11, 'f24', 'Réserve salaire ratio', '0.25', 'mois', 0, '', 0, 0),
 (12, 'f27', 'Réserve employabilité', '400', '€', 0, '', 0, 0),
-(13, 'f1', 'Forfait Client jour actuel', '500', '€', 0, 'Forfait Client jour actuel', 0, 1),
-(14, 'f4', 'Reduction Client', '12', '%', 0, 'testing', 0, 0),
+(13, 'f1', 'Forfait Client jour actuel', '500', '€', 0, '<img src=\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKAAzTzi9v0VIC--H0AUGshtLdS7eNhJ-Ce1wI1Db2Rj43v4-Evw\" width=\"300\">', 0, 1),
+(14, 'f4', 'Reduction Client', '12', '%', 0, '<h1>test1</h1/><iframe width=\"300\" height=\"250\" src=\"https://www.youtube.com/embed/OK_JCtrrv-c\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\"></iframe>', 0, 0),
 (15, 'f5', 'Forfait Client jour avec remise de base', '440', '€', 0, 'testing', 0, 0),
 (16, 'f18', 'Demande Spoc', NULL, NULL, 0, 'testing', 0, 0),
 (17, 'f20', 'Recouvrement', NULL, NULL, 0, 'testing', 0, 0),
 (19, 'f19', 'Remise Spoc', '500', '€\r\n', 0, 'testing', 0, 0),
 (20, 'f21', 'Remise recouvrement', '200', '€', 0, 'testing', 0, 0),
 (21, 'f6', 'Salaire mensuel actuel net', '3100', '€', 0, 'testing', 0, 1),
-(22, 'f2', 'Nombre de jour travaillé', '216', 'jour', 0, 'testing', 0, 0),
+(22, 'f2', 'Nombre de jour travaillé', '216', 'jour', 0, '<h1>test1</h1/><iframe width=\"300\" height=\"250\" src=\"https://www.youtube.com/embed/OK_JCtrrv-c\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\"></iframe>', 0, 0),
 (24, 'f3', 'Nombre de RTT', '11', 'jour', 0, 'testing', 0, 1),
 (25, 'f17', 'Fees TT', '1312.5547445255472', '€', 0, 'testing', 0, 0),
 (26, 'f23', 'Réserve salaire en mois', '3', 'mois', 0, '', 0, 0),
 (27, 'f30', 'Salaire mensuel cible initial', '10937.956204379561', '€', 0, 'testing', 0, 0),
 (28, 'f31', 'Salaire mensuel cible après 3 mois', '13672.445255474453', '€', 0, 'testing', 0, 0),
-(41, 'f32', 'Forfait client jour final', NULL, '€', 0, 'test', 0, 0),
+(41, 'f32', 'Forfait client jour final', '', '€', 0, '<img src=\"your_image_url_here\" width=\"300\">', 0, 0),
 (45, 'f12', 'Formation', '2200', '€', 0, 'Formation', 0, 0),
 (46, 'f25', 'Réserve salaire', NULL, NULL, 0, NULL, 0, 0),
 (47, 'f26', 'Assurance employabilité', '1', NULL, 0, 'option', 0, 0),
@@ -105,6 +105,23 @@ INSERT INTO `formulas` (`id`, `field_id`, `formula`) VALUES
 (10, 'f32', 'f5-f19-f21'),
 (11, 'f33', 'f32*(f2-f3)/12'),
 (12, 'f34', '100*(f31-f6)/f6');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `headercontent`
+--
+
+CREATE TABLE `headercontent` (
+  `content` varchar(1000) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `headercontent`
+--
+
+INSERT INTO `headercontent` (`content`) VALUES
+('This is Sample of Salary simulator. If you use this simulator you can know your state…');
 
 -- --------------------------------------------------------
 
